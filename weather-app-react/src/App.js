@@ -9,6 +9,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import CircularProgress from '@mui/material/CircularProgress';
 
 function App() {
   // creating latitude and longitude states
@@ -50,7 +51,9 @@ function App() {
           {(typeof data.main != 'undefined') ? (
             <Weather weatherData={data}/>
             ): (
-            <div></div>
+            <div>
+              <CircularProgress color="secondary" />
+            </div>
             )}
         </CardContent>
       </Card>
