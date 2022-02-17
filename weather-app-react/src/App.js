@@ -1,6 +1,13 @@
 import './App.css';
 import React, { useEffect, useState } from "react";
 import Weather from './components/weather';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
 
 function App() {
   // creating latitude and longitude states
@@ -32,12 +39,18 @@ function App() {
   // pass data with prop weatherData from child component Weather.js
   return (
     <div className="App">
-      <h1>Weather App</h1>
-      {(typeof data.main != 'undefined') ? (
-        <Weather weatherData={data}/>
-      ): (
-        <div></div>
-      )}
+      <Card>
+        <Typography variant="h2" component="div" gutterBottom>
+          Weather App
+        </Typography>
+        <CardContent>
+          {(typeof data.main != 'undefined') ? (
+            <Weather weatherData={data}/>
+            ): (
+            <div></div>
+            )}
+        </CardContent>
+      </Card>
     </div>
   );
 }
