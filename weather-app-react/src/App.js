@@ -10,6 +10,10 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
+import { createTheme, responsiveFontSizes, ThemeProvider } from '@mui/material/styles';
+
+let theme = createTheme();
+theme = responsiveFontSizes(theme);
 
 function App() {
   // creating latitude and longitude states
@@ -40,23 +44,25 @@ function App() {
   // if asynchronous data returns as undefined, show empty div
   // pass data with prop weatherData from child component Weather.js
   return (
-    <div className="App" style={{ display:'flex', justifyContent:'center', margin: '30px' }}>
-      <Card>
-        <Box sx={{ width: '100%', height: 'auto', backgroundColor: 'primary.light', border: '0px', padding: '10px 0px'}}>
-          <Typography variant="h4" component="div" color="white">
-            Weather App
-          </Typography>
-        </Box>
-        <CardContent>
-          {(typeof data.main != 'undefined') ? (
-            <Weather weatherData={data}/>
-            ): (
-            <div>
-              <CircularProgress color="secondary" />
-            </div>
-            )}
-        </CardContent>
-      </Card>
+    <div className="App" style={{ display:'flex', justifyContent:'center', margin: '1%', width: '100%' }}>
+      <ThemeProvider theme={theme}>
+        <Card sx={{ width: '100%', margin: '2%' }}>
+          <Box sx={{ width: '100%', height: 'auto', backgroundColor: 'primary.light', border: '0px', padding: '2% 0%'}}>
+            <Typography variant="h4" component="div" color="white">
+              Weather App
+            </Typography>
+          </Box>
+          <CardContent>
+            {(typeof data.main != 'undefined') ? (
+              <Weather weatherData={data}/>
+              ): (
+              <div>
+                <CircularProgress color="secondary" />
+              </div>
+              )}
+          </CardContent>
+        </Card>
+      </ThemeProvider>
     </div>
   );
 }

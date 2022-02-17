@@ -22,8 +22,8 @@ const refresh = () => {
 
 // card displays weather info using weatherData from parent component App.js
 const WeatherCard = ({weatherData}) => (
-    <Card sx={{ padding: '20px', margin: '20px'}}>
-        <IconButton onClick={refresh} sx={{ float: 'right', backgroundColor: 'primary.dark', color: 'white',  }}>
+    <Card sx={{ padding: '2%', margin: '2%'}}>
+        <IconButton onClick={refresh} sx={{ float: 'right', backgroundColor: 'primary.dark', color: 'white', margin: '1%'  }}>
             <RefreshIcon/>
         </IconButton>
 
