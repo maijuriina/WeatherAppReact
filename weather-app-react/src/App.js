@@ -8,6 +8,7 @@ import '@fontsource/roboto/700.css';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
 
 function App() {
   // creating latitude and longitude states
@@ -38,11 +39,13 @@ function App() {
   // if asynchronous data returns as undefined, show empty div
   // pass data with prop weatherData from child component Weather.js
   return (
-    <div className="App">
+    <div className="App" style={{ display:'flex', justifyContent:'center', margin: '30px' }}>
       <Card>
-        <Typography variant="h2" component="div" gutterBottom>
-          Weather App
-        </Typography>
+        <Box sx={{ width: '100%', height: 'auto', backgroundColor: 'primary.light', border: '0px', padding: '10px 0px'}}>
+          <Typography variant="h4" component="div" color="white">
+            Weather App
+          </Typography>
+        </Box>
         <CardContent>
           {(typeof data.main != 'undefined') ? (
             <Weather weatherData={data}/>
