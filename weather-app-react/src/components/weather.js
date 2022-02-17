@@ -14,6 +14,7 @@ import AirIcon from '@mui/icons-material/Air';
 import TextSnippetIcon from '@mui/icons-material/TextSnippet';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import IconButton from '@mui/material/IconButton';
+import Box from '@mui/material/Box';
 
 // for refresh-button
 const refresh = () => {
@@ -26,10 +27,9 @@ const WeatherCard = ({weatherData}) => (
         <IconButton onClick={refresh} sx={{ float: 'right', backgroundColor: 'primary.dark', color: 'white', margin: '1%'  }}>
             <RefreshIcon/>
         </IconButton>
-
         <CardContent>
         <Typography variant="description" component="div" gutterBottom>
-            {moment().format('LL')}
+            {moment().format('LL')} at {moment().format('HH:mm')}
         </Typography>
         <Typography variant="h3" component="div" gutterBottom>
             {weatherData.name}
@@ -65,7 +65,7 @@ const WeatherCard = ({weatherData}) => (
                     <AirIcon/>
                 </ListItemIcon>
                 <Typography variant="h5" component="div">
-                {weatherData.wind.speed}
+                {weatherData.wind.speed} m/s
                 </Typography>
             </ListItem>
             <ListItem>

@@ -35,7 +35,7 @@ function App() {
       .then(res => res.json())
       .then(result => {
         setData(result)
-        console.log(result);
+        //console.log(result);
       });
     }
     fetchData();
@@ -48,8 +48,11 @@ function App() {
       <ThemeProvider theme={theme}>
         <Card sx={{ width: '100%', margin: '2%' }}>
           <Box sx={{ width: '100%', height: 'auto', backgroundColor: 'primary.light', border: '0px', padding: '2% 0%'}}>
-            <Typography variant="h4" component="div" color="white">
+            <Typography variant="h4" component="div" color="white" gutterBottom>
               Weather App
+            </Typography>
+            <Typography variant="description" component="div" gutterBottom color="white" padding="1% 0%">
+                How's the weather at your current location? Hit refresh to update!
             </Typography>
           </Box>
           <CardContent>
